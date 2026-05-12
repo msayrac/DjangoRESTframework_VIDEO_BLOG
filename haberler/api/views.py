@@ -24,3 +24,4 @@ def makale_list_create_api_view(request):
 
 
 
+
