@@ -30,6 +30,3 @@ class MakaleSerializer(serializers.Serializer):
         return instance
         
 
-
-
-
