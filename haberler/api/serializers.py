@@ -3,7 +3,7 @@ from haberler.models import Makale
 
 class MakaleSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    yazar = serializers.Charfield()
+    yazar = serializers.CharField()
     baslik = serializers.CharField()
     aciklama = serializers.CharField()
     metin = serializers.CharField()
@@ -31,8 +31,4 @@ class MakaleSerializer(serializers.Serializer):
 
         return instance
     
-
-
-
-
 
