@@ -28,7 +28,19 @@ class MakaleSerializer(serializers.Serializer):
         instance.aktif = validated_data.get('aktif',instance.aktif)
     
         instance.save()
-
         return instance
+    
+    def validate(self,data):
+        if data['baslik'] ==data['aciklama']:
+            raise serializers.ValidationError(
+                'Baslık ve acıklama alanları aynı olamaz. lutfen farklı bir acıklama giriniz.'
+            )
+        return data
+    
+    def validate_baslik(self,value):
+        if len(value) < 20:
+            raise serializers.ValidationError(f'Baslık alamı min 20 karakter olmalı. Siz {len(value)} karakter girdiniz')
+        return value
+
     
 

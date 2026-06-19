@@ -6,6 +6,7 @@ urlpatterns = [
     # path('makaleler/', api_views.makale_list_create_api_view, name='makale-listesi'),
     path('makaleler/', MakaleListCreateAPIView.as_view(), name='makale-listesi'),
     path('makaleler/<int:pk>/', MakaleDetailAPIView.as_view(), name='makale-detay'),
-    # path('makaleler/<int:pk>/', api_views.makale_detail_api_view, name='makale-detay'),
-
+    # path('makaleler/<int:pk>/', api_views.makale_detail_api_view, name='makale-detay')
 ]
+
+
