@@ -24,7 +24,7 @@ class MakaleListCreateAPIView(APIView):
 
 class MakaleDetailAPIView(APIView):
     def get_object(self,pk):
-        makale_instance = get_object_or_404(Makale, pk)
+        makale_instance = get_object_or_404(Makale, pk=pk)
         return makale_instance
 
     def get(self, request, pk):
@@ -34,7 +34,7 @@ class MakaleDetailAPIView(APIView):
     
     def put(self, request, pk):
         makale = self.get_object(pk=pk)
-        serializer =MakaleSerializer(makale, data=request.data)
+        serializer =MakaleSerializer(instance=makale, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
