@@ -1,5 +1,5 @@
 from django.contrib import admin
-from haberler.models import Makale
+from haberler.models import Makale, Gazeteci
 # Register your models here.
 
 
@@ -15,7 +15,12 @@ class MakaleAdmin(admin.ModelAdmin):
     search_fields = ('baslik', 'yazar')
 
 
-admin.site.register(Makale, MakaleAdmin)
+class GazeteciAdmin(admin.ModelAdmin):
+    list_display = ('isim','soyisim','biyografi')
+    list_filter =('isim', 'soyisim')
+    search_fields = ('isim', 'soyisim','biyografi')
 
+admin.site.register(Makale, MakaleAdmin)
+admin.site.register(Gazeteci,GazeteciAdmin)
 
 
